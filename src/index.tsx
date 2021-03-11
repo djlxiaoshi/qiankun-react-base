@@ -20,7 +20,12 @@ registerMicroApps([
   },
 ]);
 
-start();
+start({
+  sandbox: {
+    // strictStyleIsolation: true,
+    // experimentalStyleIsolation: true,
+  },
+});
 
 ReactDOM.render(
   <React.StrictMode>
