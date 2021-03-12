@@ -1,35 +1,25 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import "./App.css";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import styles from "./index.module.scss";
+import MenuBar from "./Menu";
 
 function App() {
   return (
     <Router>
-      <div>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/about">About</Link>
-            </li>
-            <li>
-              <Link to="/reactApp">React App</Link>
-            </li>
-            <li>
-              <Link to="/vueApp">Vue App</Link>
-            </li>
-          </ul>
-        </nav>
+      <div className={styles.container}>
+        <div className={styles.left}>
+          <MenuBar></MenuBar>
+        </div>
+        <div className={styles.right}>
+          <Switch>
+            <Route path="/about">
+              <h1>about</h1>
+            </Route>
+          </Switch>
 
-        {/* A <Switch> looks through its children <Route>s and
-            renders the first one that matches the current URL. */}
-        <Switch>
-          <Route path="/about">
-            <h1>about</h1>
-          </Route>
-        </Switch>
-
-        <div id="reactApp"></div>
-        <div id="vueApp"></div>
+          <div id="reactApp"></div>
+          <div id="vueApp"></div>
+        </div>
       </div>
     </Router>
   );
